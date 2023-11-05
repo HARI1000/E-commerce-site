@@ -1,20 +1,11 @@
-import SignUpForm from "../../components/sigin-up-form/sigin-up-form.component";
-import { auth, signInWithGooglePopUp, createUserDocumentFromAuth, signInWithGoogleRedirect } from "../../utils/firebase/firebase.utils";
+import SignInForm from "../../components/sign-in-form/sign-in-form.component";
+import SignUpForm from "../../components/sign-up-form/sign-up-form.component";
+import './authentication-styles.scss';
 ////// Used for signin with googleRedirect //////
 // import { useEffect } from "react";
 // import { getRedirectResult } from "firebase/auth";
-const handleBtnClick = async () => {
-    try {
-        const { user } = await signInWithGooglePopUp();
-        const docres = await createUserDocumentFromAuth(user);
 
-    }
-    catch (err) {
-        console.log(err);
-    }
-}
-
-const SignIn = () => {
+const Authentication = () => {
 ////// Used for signin with googleRedirect //////
 //     useEffect(() => {
 //         async function work() {
@@ -27,12 +18,11 @@ const SignIn = () => {
 //     }, []);
 
     return (
-        <div>
-            <h1> Sign IN</h1>
-            <button onClick={handleBtnClick}>Click Me</button>
+        <div className="authentication-container">
             {/* <button onClick={signInWithGoogleRedirect}>SignInWith google Redirect</button> */}
+            <SignInForm/>
             <SignUpForm/>
         </div>
     )
 }
-export default SignIn;
+export default Authentication;
